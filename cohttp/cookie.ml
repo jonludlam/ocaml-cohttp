@@ -84,12 +84,12 @@ module Cookie_hdr = struct
   let extract hdr =
     List.fold_left
       (fun acc header ->
-          let comps = Strings.split_cookie header in
+          let comps = Stringext.split_cookie header in
           (* We don't handle $Path, $Domain, $Port, $Version (or $anything
              $else) *)
           let cookies = List.filter (fun s -> s.[0] != '$') comps in
           let split_pair nvp =
-            match Strings.split ~on:'=' nvp ~max:2 with
+            match Stringext.split ~on:'=' nvp ~max:2 with
             | [] -> ("","")
             | n :: [] -> (n, "")
             | n :: v :: _ -> (n, v)
