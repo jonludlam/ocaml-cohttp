@@ -82,8 +82,7 @@ module Cookie_hdr = struct
   *)
 
   let cookie_re = Re_str.regexp "[;,][ \t]*"
-  let equals_re = Re_str.regexp_string "="
-
+  
   let extract hdr =
     List.fold_left
       (fun acc header ->
@@ -92,7 +91,7 @@ module Cookie_hdr = struct
              $else) *)
           let cookies = List.filter (fun s -> s.[0] != '$') comps in
           let split_pair nvp =
-            match Re_str.split_delim equals_re nvp with
+            match Strings.split ~on:'=' nvp ~max:2 with
             | [] -> ("","")
             | n :: [] -> (n, "")
             | n :: v :: _ -> (n, v)
