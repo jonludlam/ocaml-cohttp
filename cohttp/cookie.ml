@@ -81,12 +81,10 @@ module Cookie_hdr = struct
     port            =  "$Port" [ "=" <"> value <"> ]
   *)
 
-  let cookie_re = Re_str.regexp "[;,][ \t]*"
-  
   let extract hdr =
     List.fold_left
       (fun acc header ->
-          let comps = Re_str.split_delim cookie_re header in
+          let comps = Strings.split_cookie header in
           (* We don't handle $Path, $Domain, $Port, $Version (or $anything
              $else) *)
           let cookies = List.filter (fun s -> s.[0] != '$') comps in
