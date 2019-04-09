@@ -1,3 +1,0 @@
-(library (name ppx_stable) (public_name ppx_stable) (kind ppx_deriver)
- (libraries base compiler-libs.common ppxlib)
- (preprocess (pps ppxlib.metaquot)))

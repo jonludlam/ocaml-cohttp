@@ -1,9 +1,0 @@
-(executable
- (name unittestrunner)
- (flags (:standard -w -27))
- (libraries tls nocrypto cstruct-unix oUnit))
-
-(alias
- (name runtest)
- (deps (:< unittestrunner.exe))
- (action (run %{<})))

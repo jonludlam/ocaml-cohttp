@@ -1,5 +1,0 @@
-(executable
- (name speed)
- (modules speed)
- (libraries nocrypto)
-)

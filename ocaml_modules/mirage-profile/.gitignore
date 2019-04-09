@@ -1,8 +1,0 @@
-_build
-setup.log
-setup.data
-benchmark.native
-mirage-profile.install
-*.install
-*.merlin
-

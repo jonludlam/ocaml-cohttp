@@ -1,4 +1,0 @@
-(library (name version_sample) (libraries base)
- (preprocess (pps ppx_stable)))
-
-(alias (name DEFAULT) (deps test.ml.pp))
